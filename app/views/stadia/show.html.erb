@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @stadium.city %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @stadium.university %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @stadium.cep %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @stadium.street %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @stadium.number %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @stadium.state %>
+</p>
+
+<%= link_to 'Edit', edit_stadium_path(@stadium) %> |
+<%= link_to 'Back', stadia_path %>

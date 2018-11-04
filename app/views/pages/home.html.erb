@@ -1,0 +1,40 @@
+<div class="outer-box">
+
+  <div class="container-fluid inner-box">
+    <div class="spacer-big"></div>
+
+    <div class="hidden-xs col-sm-3 no-gutter players">
+        <div class="spacer"></div>
+        <h5 class="best-players">Jogadores da rodada</h5>
+
+        <% @users.each do |user| %>
+          <div class="player">
+            <div class="player_id"> <%= user.id %></div>
+            <div class="user_first_name"> <%= user.first_name %> <%= user.last_name %></div>
+            <div class="user_last_name"></div>
+            <div class="user_name"><%= user.user_name %></div>
+          </div>
+          <div class="spacer"></div>
+        <% end %>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-9 no-gutter">
+
+      <div class="players col-md-12">
+        <div class="spacer"></div>
+        <h5 class="best-players">Jogos da rodada</h5>
+
+        <% @users.each do |user| %>
+          <div class="player">
+            <div class="player_id"> <%= user.id %></div>
+            <div class="user_first_name"> <%= user.first_name %> <%= user.last_name %></div>
+            <div class="user_last_name"></div>
+            <div class="user_name"><%= user.user_name %></div>
+          </div>
+          <div class="spacer"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

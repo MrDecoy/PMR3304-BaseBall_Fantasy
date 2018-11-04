@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_id: 1
+  visitor_id: 1
+  stadium_id: 1
+  round_id: 1
+  home_score: 1
+  visiting_score: 1
+
+two:
+  home_id: 1
+  visitor_id: 1
+  stadium_id: 1
+  round_id: 1
+  home_score: 1
+  visiting_score: 1

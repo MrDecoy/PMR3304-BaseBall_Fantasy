@@ -1,0 +1,28 @@
+<!-- TODO entender como fazer um filtro em ruby on rails. talvez olhar: http://filterrific.clearcove.ca/ -->
+<div class="outer-box">
+
+  <div class="container-fluid inner-box">
+    <div class="spacer-big"></div>
+    <div class="players-stats">
+
+      <table class="stats-tables table">
+        <thead class="black white-text">
+        <tr>
+          <th scope="col">UserName</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= user.user_name %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+          </tr>
+      <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

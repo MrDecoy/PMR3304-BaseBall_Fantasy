@@ -1,0 +1,2 @@
+class Cartola < ApplicationRecord
+end
