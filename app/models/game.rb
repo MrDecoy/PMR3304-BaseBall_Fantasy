@@ -1,4 +1,5 @@
 class Game < ApplicationRecord
-  has_many :teams
-  has_one :stadium
+  belongs_to :stadium
+  has_many :teams, through: :players_has_jogos
+  belongs_to :players_has_jogo
 end
