@@ -28,11 +28,11 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
-        format.json { render :show, status: :created, location: @player }
+        format.html {redirect_to @player, notice: 'Player was successfully created.'}
+        format.json {render :show, status: :created, location: @player}
       else
-        format.html { render :new }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @player.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +42,11 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
-        format.json { render :show, status: :ok, location: @player }
+        format.html {redirect_to @player, notice: 'Player was successfully updated.'}
+        format.json {render :show, status: :ok, location: @player}
       else
-        format.html { render :edit }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @player.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,19 +56,69 @@ class PlayersController < ApplicationController
   def destroy
     @player.destroy
     respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to players_url, notice: 'Player was successfully destroyed.'}
+      format.json {head :no_content}
+    end
+  end
+
+  def cartolas
+    @player = Player.find(params[:id])
+    @cartolas = @player.cartolas
+  end
+
+  def plays_in?(cartola)
+    self.cartolas.include?(cartola)
+  end
+
+  def cartola_add
+# Convert ids from routing to objects
+    @player = Player.find(params[:id])
+    @cartola = Cartola.find(params[:cartola])
+
+    if @player.plays_in?(@cartola)
+      flash[:error] = 'Player was already enrolled'
+    else
+      @player.cartolas << @cartola
+      flash[:notice] = 'Player was successfully enrolled'
+    end
+    redirect_to action: "cartolas", id: @player
+  end
+
+  def cartola_remove
+# Convert ids from routing to objects
+    @player = Player.find(params[:id])
+    cartola_ids = params[:cartolas]
+    if cartola_ids.any?
+      cartola_ids.each do |cartola_id|
+        cartola = Cartola.find(cartola_id)
+        if @player.enrolled_in?(cartola)
+          logger.info "Removing student from cartola #{cartola.id}"
+          @player.cartolas.delete(cartola)
+          flash[:notice] = 'Cartola was successfully deleted'
+          if cartola_ids.any?
+            cartola_ids.each do |cartola_id|
+              cartola = Cartola.find(cartola_id)
+              if @player.enrolled_in?(cartola)
+                logger.info "Removing student from cartola #{cartola.id}"
+                @player.cartolas.delete(cartola)
+                flash[:notice] = 'Cartola was successfully deleted'
+              end
+            end
+          end
+          redirect_to action: "cartolas", id: @player
+        end
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_player
-      @player = Player.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def player_params
-      params.require(:player).permit(:Name, :Position, :team_id)
-    end
-end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_player
+    @player = Player.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def player_params
+    params.require(:player).permit(:Name, :Position, :team_id)
+  end
