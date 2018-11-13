@@ -122,3 +122,4 @@ class PlayersController < ApplicationController
   def player_params
     params.require(:player).permit(:Name, :Position, :team_id)
   end
+end

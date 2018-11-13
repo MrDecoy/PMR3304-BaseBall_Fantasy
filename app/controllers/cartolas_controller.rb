@@ -69,7 +69,7 @@ class CartolasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cartola_params
-      params.require(:cartola).permit(:nome, :arremessador_id, :player_1_id, :player_2_id, :player_3_id, :player_4_id, :player_5_id, :player_6_id, :player_7_id, :player_8_id)
+      params.require(:cartola).permit(:nome)
     end
 
   def players_in_cartola
