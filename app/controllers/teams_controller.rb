@@ -61,6 +61,17 @@ class TeamsController < ApplicationController
     end
   end
 
+  def roll
+    # fornece uma lista dos jogadores que estao no time
+    @team = Team.find(params[:id])
+  end
+
+  def add_player
+    @player = Player.find(params[:id])
+    @team = Team.find(params[:id])
+    @team.players << @player
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
