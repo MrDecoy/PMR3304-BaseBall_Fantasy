@@ -4,30 +4,31 @@
 
 <table>
   <thead>
-    <tr>
-      <th>User name</th>
-      <th>Password</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>User name</th>
+    <th>Password</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.user_name %></td>
-        <td><%= user.password %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= link_to 'Show', user %></td>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.user_name %></td>
+      <td><%= user.password %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= link_to 'Show', user %></td>
+      <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+        <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
   </tbody>
 </table>
-
+<%= link_to 'New User', new_user_path %>
 <br>
 
-<%= link_to 'New User', new_user_path %>
