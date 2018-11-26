@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20181112182716) do
     t.index ["game_id", "player_id"], name: "index_PlayerHasGames_on_game_id_and_player_id", unique: true
   end
 
+  create_table "administrators", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cartolas", force: :cascade do |t|
     t.string   "nome"
     t.string   "arremessador_id"
@@ -100,8 +106,9 @@ ActiveRecord::Schema.define(version: 20181112182716) do
     t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false, null: false
   end
 
 end

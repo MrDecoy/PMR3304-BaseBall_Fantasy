@@ -17,8 +17,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :Position %>
-    <%= f.text_field :Position %>
+    <%= f.label :Position %><br>
+    <%= f.select :Position, [['1st Base', '1B'],['2nd Base','2B'], ['3rd Base', '3B'], ['Shortstop', 'SS'], ['Pitcher', 'P'], ['Right Field', 'RF'], ['Center Field', 'CF'], ['Left Field', 'LF']] %>
+
   </div>
 
   <div class="field">
