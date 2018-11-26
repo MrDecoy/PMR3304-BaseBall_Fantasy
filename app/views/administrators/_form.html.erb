@@ -4,9 +4,9 @@
       <h2><%= pluralize(administrator.errors.count, "error") %> prohibited this administrator from being saved:</h2>
 
       <ul>
-      <% administrator.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% administrator.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :team_id %><br/>
-    <%= f.select :team_id, Team.all.order(:name).collect{|s|[(s.name),s.id]} %>
+    <%= f.select :team_id, Team.all.order(:name).collect {|s| [(s.name), s.id]} %>
   </div>
 
   <div class="actions">
