@@ -61,6 +61,7 @@ class PlayersController < ApplicationController
     end
   end
 
+  # GET /courses/1/cartolas
   def cartolas
     @player = Player.find(params[:id])
     @cartolas = @player.cartolas
@@ -70,12 +71,13 @@ class PlayersController < ApplicationController
     self.cartolas.include?(cartola)
   end
 
+  # POST /players/1/cartola_add?cartola_id=2
   def cartola_add
 # Convert ids from routing to objects
     @player = Player.find(params[:id])
     @cartola = Cartola.find(params[:cartola])
 
-    if @player.plays_in?(@cartola)
+    if @player.enrolled_in?(@cartola)
       flash[:error] = 'Player was already enrolled'
     else
       @player.cartolas << @cartola

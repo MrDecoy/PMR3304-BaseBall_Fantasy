@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resources :courses do
-    member do
-      get :roll
-    end
-  end
+
   resources :students do
     resources :awards
     member do
@@ -16,6 +12,18 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
+  resources :cartolas do
+    member do
+      get :players_in_cartola
+    end
+  end
+  resources :players do
+    member do
+      get :cartolas
+      post :cartola_add
+      post :cartola_remove
+    end
+  end
   resources :sessions
   resources :players_has_jogos
   resources :players

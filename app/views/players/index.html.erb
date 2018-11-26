@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Position</th>
       <th>Team</th>
+      <th>Number of Cartolas></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= player.Name %></td>
         <td><%= player.Position %></td>
         <td><%= player.team_id %></td>
+        <td><%= player.cartolas.count %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>

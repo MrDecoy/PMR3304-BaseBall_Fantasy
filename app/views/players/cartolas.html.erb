@@ -1,0 +1,35 @@
+<h1><%= @player.Name %>'s cartolas</h1>
+<% if @cartolas.length > 0 %>
+  <%= form_tag(cartola_remove_player_path(@player)) do %>
+    <table>
+      <thead>
+      <tr>
+        <th>Cartola</th>
+        <th>Remove</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% for cartola in @cartolas do %>
+        <tr>
+          <td><%= cartola.nome %></td>
+          <td><%= check_box_tag "cartolas[]", cartola.id %></td>
+        </tr>
+      <% end %></tbody>
+    </table>
+    <br/>
+    <%= submit_tag 'Remove checked cartolas' %>
+  <% end %>
+<% else %>
+  <p>Not enrolled in any cartolas yet.</p>
+<% end %>
+<h2>Enroll in new cartola</h2>
+<% if @player.cartolas.count < Cartola.count then %>
+  <%= form_tag(cartola_add_player_path(@player)) do %>
+    <%= select_tag(:cartola, options_from_collection_for_select(
+        @player.unenrolled_cartolas, :id, :nome)) %>
+    <%= submit_tag 'Enroll' %>
+  <% end %>
+<% else %>
+  <p><%= @player.Name %> is enrolled in every cartola.</p>
+<% end %>
+<p><%= link_to "Back", @player %></p>

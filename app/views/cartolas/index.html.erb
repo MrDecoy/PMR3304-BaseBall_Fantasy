@@ -6,16 +6,8 @@
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Arremessador</th>
-      <th>Player 1</th>
-      <th>Player 2</th>
-      <th>Player 3</th>
-      <th>Player 4</th>
-      <th>Player 5</th>
-      <th>Player 6</th>
-      <th>Player 7</th>
-      <th>Player 8</th>
-      <th colspan="3"></th>
+      <th>Usuario</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -23,15 +15,6 @@
     <% @cartolas.each do |cartola| %>
       <tr>
         <td><%= cartola.nome %></td>
-        <td><%= cartola.arremessador_id %></td>
-        <td><%= cartola.player_1_id %></td>
-        <td><%= cartola.player_2_id %></td>
-        <td><%= cartola.player_3_id %></td>
-        <td><%= cartola.player_4_id %></td>
-        <td><%= cartola.player_5_id %></td>
-        <td><%= cartola.player_6_id %></td>
-        <td><%= cartola.player_7_id %></td>
-        <td><%= cartola.player_8_id %></td>
         <td><%= link_to 'Show', cartola %></td>
         <td><%= link_to 'Edit', edit_cartola_path(cartola) %></td>
         <td><%= link_to 'Destroy', cartola, method: :delete, data: { confirm: 'Are you sure?' } %></td>
