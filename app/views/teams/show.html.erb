@@ -15,11 +15,17 @@
   <%= @team.stadium_id %>
 </p>
 
-<h3>Players</h3><table><tr>
-  <th>Name</th><th>Position</th>
-  <% @team.players.each do |player| %>
-    <tr><td><%= player.Name %></td><td><%= player.Position %></td></tr>
-  <%end %>
+<h3>Players</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <% @team.players.each do |player| %>
+    <tr>
+      <td><%= player.Name %></td>
+      <td><%= player.Position %></td>
+    </tr>
+  <% end %>
 </table>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
