@@ -1,7 +1,5 @@
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
 
-  before_action :set_user, only: [:new, :show, :edit, :update, :destroy]
-  before_action :is_admin?, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -12,13 +10,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-  end
-
-  def sign_in
-    @user = User.new
-    @previous_name = cookies[:name]
-    @name = params[:visitor_name]
-    cookies[:name] = @name
   end
 
   # GET /users/new

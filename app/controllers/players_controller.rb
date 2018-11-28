@@ -67,6 +67,9 @@ class PlayersController < ApplicationController
     @cartolas = @player.cartolas
   end
 
+  def team
+    @team = @player.teams
+  end
   def plays_in?(cartola)
     self.cartolas.include?(cartola)
   end

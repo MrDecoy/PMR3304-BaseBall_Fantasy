@@ -8,9 +8,7 @@ Rails.application.routes.draw do
       post :course_remove
     end
   end
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  devise_for :users, controllers: {users: "users/registration#new"}
 
   resources :cartolas do
     member do
@@ -31,11 +29,10 @@ Rails.application.routes.draw do
   resources :stadia
   resources :games
   resources :teams
-  resources :users
+  #resources :users
 
   root 'pages#home'
   get '/players' => 'pages#players'
-  get '/sign_in' => 'users#sign_in'
 
   match ':controller(/:action(/:id(.:format)))', via: [:get, :post]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
