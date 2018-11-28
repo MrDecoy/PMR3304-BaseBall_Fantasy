@@ -18,7 +18,7 @@
       <tr>
         <td><%= player.Name %></td>
         <td><%= player.Position %></td>
-        <td><%= player.team_id %></td>
+        <td><%= player.team.name %></td>
         <td><%= player.cartolas.count %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
