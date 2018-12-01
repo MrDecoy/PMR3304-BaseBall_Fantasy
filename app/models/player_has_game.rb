@@ -1,0 +1,3 @@
+class PlayerHasGame < ApplicationRecord
+
+end
