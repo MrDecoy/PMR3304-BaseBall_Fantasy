@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181128231108) do
-
-  create_table "PlayerHasGames", force: :cascade do |t|
-    t.integer "game_id", null: false
-    t.integer "player_id", null: false
-    t.integer "team_id"
-    t.integer "score"
-    t.integer "homerun"
-    t.integer "hits"
-    t.integer "at_bats"
-    t.integer "rbi"
-    t.integer "runs"
-    t.integer "error"
-    t.index ["game_id", "player_id"], name: "player_has_games_index", unique: true
-  end
+ActiveRecord::Schema.define(version: 20181201171323) do
 
   create_table "administrators", force: :cascade do |t|
     t.integer "user_id"
@@ -54,14 +40,27 @@ ActiveRecord::Schema.define(version: 20181128231108) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer  "home_id"
-    t.integer  "visitor_id"
     t.integer  "stadium_id"
-    t.integer  "round_id"
     t.integer  "home_score"
     t.integer  "visiting_score"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "player_has_games", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.integer "player_id"
+    t.integer "team_id"
+    t.integer "score"
+    t.integer "home_run"
+    t.integer "hits"
+    t.integer "at_bats"
+    t.integer "rbi"
+    t.integer "runs"
+    t.integer "misses"
+    t.index ["game_id", "player_id"], name: "game_player_index", unique: true
   end
 
   create_table "players", force: :cascade do |t|

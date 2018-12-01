@@ -12,23 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :home_id %><br/>
-    <%= f.select :home_id, Team.all.order(:name).collect{|s|[(s.name),s.id]} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :visitor_id %>
-    <%= f.select :visitor_id, Team.all.order(:name).collect{|s|[(s.name),s.id]} %>
-  </div>
-
-  <div class="field">
     <%= f.label :stadium_id %>
     <%= f.select :stadium_id, Stadium.all.order(:university).collect{|s|[(s.university),s.id]} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :round_id %>
-    <%= f.number_field :round_id %>
   </div>
 
   <div class="field">

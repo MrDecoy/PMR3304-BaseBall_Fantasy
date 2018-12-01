@@ -61,6 +61,9 @@ class GamesController < ApplicationController
     end
   end
 
+  def participants
+    game = Game.find(params[:id])
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

@@ -23,9 +23,10 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions
-  resources :players_has_jogos
+
   resources :players
   resources :cartolas
+  resources :player_has_game
   resources :stadia
   resources :games
   resources :teams
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get '/players' => 'pages#players'
-
+  get '/novo_jogo' => 'player_has_game#new_game'
   match ':controller(/:action(/:id(.:format)))', via: [:get, :post]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

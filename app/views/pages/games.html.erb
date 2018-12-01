@@ -1,0 +1,60 @@
+<div class="outer-box">
+
+  <div class="container-fluid inner-box">
+    <div class="spacer-big"></div>
+
+    <div class="hidden-xs col-sm-6 no-gutter players">
+      <div class="spacer"></div>
+      <h5 class="best-players">Jogadores da rodada</h5>
+
+      <%= form_for(player_has_game) do |f| %>
+        <% if player_has_game.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(player_has_game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+            <ul>
+              <% player_has_game.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :Name %>
+          <%= f.text_field :Name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :Position %><br>
+          <%= f.select :Position, [['1st Base', '1B'], ['2nd Base', '2B'], ['3rd Base', '3B'], ['Shortstop', 'SS'], ['Pitcher', 'P'], ['Right Field', 'RF'], ['Center Field', 'CF'], ['Left Field', 'LF']] %>
+
+        </div>
+
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+
+
+    </div>
+
+    <div class="col-xs-12 col-sm-6 no-gutter">
+
+      <div class="players col-md-12">
+        <div class="spacer"></div>
+        <h5 class="best-players">Jogos da rodada</h5>
+
+        <% @players.each do |player| %>
+          <div class="player">
+            <div class="user_first_name"> <%= player.Name %> </div>
+            <div class="user_name"><%= player.Position %></div>
+            <div class="user_name"><%= player.team.name %></div>
+          </div>
+          <div class="spacer"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,4 +10,12 @@ class Player < ApplicationRecord
   def enrolled_in?(cartola)
     self.cartolas.include?(cartola)
   end
+
+  def plays_in?(game)
+    self.games.include?(game)
+  end
+
+  def not_playing_games
+    Game.all - self.games
+  end
 end
