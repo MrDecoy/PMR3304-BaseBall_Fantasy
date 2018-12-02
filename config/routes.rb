@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :teams
   resources :users
 
+
   root 'pages#home'
   get '/players' => 'pages#players'
   get '/sign_in' => 'users#sign_in'
@@ -33,5 +34,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/statics' => 'pages#statics'
+  get '/contact_us' => 'pages#contact_us'
 end
 

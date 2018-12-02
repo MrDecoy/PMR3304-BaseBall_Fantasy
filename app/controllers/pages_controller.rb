@@ -11,4 +11,5 @@ class PagesController < ApplicationController
 
   def statics; end
 
+  def  contact_us; end
 end
