@@ -1,9 +1,21 @@
 class Player < ApplicationRecord
   has_and_belongs_to_many :game
-  has_one :team
+  belongs_to :team
+  has_and_belongs_to_many :cartolas
 
-  def enrolled_in?(team)
-    #Check if player is included in any team
-    self.teams.include?(team)
+  def unenrolled_cartolas
+    Cartola.all - self.cartolas
+  end
+
+  def enrolled_in?(cartola)
+    self.cartolas.include?(cartola)
+  end
+
+  def plays_in?(game)
+    self.games.include?(game)
+  end
+
+  def not_playing_games
+    Game.all - self.games
   end
 end

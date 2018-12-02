@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resources :courses do
-    member do
-      get :roll
-    end
-  end
+
   resources :students do
     resources :awards
     member do
@@ -12,24 +8,34 @@ Rails.application.routes.draw do
       post :course_remove
     end
   end
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  devise_for :users, controllers: {users: "users/registration#new"}
 
+  resources :cartolas do
+    member do
+      get :players_in_cartola
+    end
+  end
+  resources :players do
+    member do
+      get :cartolas
+      post :cartola_add
+      post :cartola_remove
+    end
+  end
   resources :sessions
-  resources :players_has_jogos
+
   resources :players
   resources :cartolas
+  resources :player_has_game
   resources :stadia
   resources :games
   resources :teams
-  resources :users
+  #resources :users
 
 
   root 'pages#home'
   get '/players' => 'pages#players'
-  get '/sign_in' => 'users#sign_in'
-
+  get '/novo_jogo' => 'player_has_game#new_game'
   match ':controller(/:action(/:id(.:format)))', via: [:get, :post]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

@@ -61,21 +61,71 @@ class PlayersController < ApplicationController
     end
   end
 
+  # GET /courses/1/cartolas
   def cartolas
     @player = Player.find(params[:id])
     @cartolas = @player.cartolas
   end
 
-  def plays_in?(cartola)
+  def team
+    @team = @player.teams
+  end
+
+  def participates_in?(cartola)
     self.cartolas.include?(cartola)
   end
 
+  def games(game)
+    @player = Player.find(params[:id])
+    teams = @player.teams
+  end
+  # POST /players/1/cartola_add?cartola_id=2
+  def game_add
+# Convert ids from routing to objects
+    @player = Player.find(params[:id])
+    game = Game.find(params[:game])
+
+    if @player.plays_in?(game)
+      flash[:error] = 'Player was already enrolled'
+    else
+      @player.games << @game
+      flash[:notice] = 'Player was successfully enrolled'
+    end
+    redirect_to action: "games", id: @player
+  end
+
+  def game_remove
+# Convert ids from routing to objects
+    @player = Player.find(params[:id])
+    game_ids = params[:games]
+    if game_ids.any?
+      game_ids.each do |game_id|
+        game = Game.find(game_id)
+        if @player.plays_in?(game)
+          logger.info "Removing student from cartola #{game_id.id}"
+          @player.games.delete(game)
+          flash[:notice] = 'Cartola was successfully deleted'
+          if game_ids.any?
+            game_ids.each do |game_id|
+              game = Game.find(game_id)
+              if @player.plays_in?(game)
+                logger.info "Removing student from cartola #{game.id}"
+                @player.games.delete(game)
+                flash[:notice] = 'Cartola was successfully deleted'
+              end
+            end
+          end
+          redirect_to action: "games", id: @player
+        end
+      end
+    end
+  end
   def cartola_add
 # Convert ids from routing to objects
     @player = Player.find(params[:id])
     @cartola = Cartola.find(params[:cartola])
 
-    if @player.plays_in?(@cartola)
+    if @player.enrolled_in?(@cartola)
       flash[:error] = 'Player was already enrolled'
     else
       @player.cartolas << @cartola

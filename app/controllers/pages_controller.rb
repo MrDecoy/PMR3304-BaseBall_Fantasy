@@ -8,8 +8,4 @@ class PagesController < ApplicationController
   def players
   @users = User.all
   end
-
-  def statics; end
-
-  def  contact_us; end
 end

@@ -1,0 +1,2 @@
+module PlayerHasGameHelper
+end

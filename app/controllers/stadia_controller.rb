@@ -1,5 +1,4 @@
 class StadiaController < ApplicationController
-  before_action :set_stadium, only: [:show, :edit, :update, :destroy]
 
   # GET /stadia
   # GET /stadia.json
@@ -10,6 +9,7 @@ class StadiaController < ApplicationController
   # GET /stadia/1
   # GET /stadia/1.json
   def show
+    @stadia = Stadium.all
   end
 
   # GET /stadia/new

@@ -7,12 +7,11 @@
         <div class="spacer"></div>
         <h5 class="best-players">Jogadores da rodada</h5>
 
-        <% @users.each do |user| %>
+      <% @players.each do |player| %>
           <div class="player">
-            <div class="player_id"> <%= user.id %></div>
-            <div class="user_first_name"> <%= user.first_name %> <%= user.last_name %></div>
-            <div class="user_last_name"></div>
-            <div class="user_name"><%= user.user_name %></div>
+            <div class="user_first_name"> <%= player.Name %> </div>
+            <div class="user_name"><%= player.Position %></div>
+            <div class="user_name"><%= player.team.name %></div>
           </div>
           <div class="spacer"></div>
         <% end %>
@@ -25,12 +24,11 @@
         <div class="spacer"></div>
         <h5 class="best-players">Jogos da rodada</h5>
 
-        <% @users.each do |user| %>
+        <% @players.each do |player| %>
           <div class="player">
-            <div class="player_id"> <%= user.id %></div>
-            <div class="user_first_name"> <%= user.first_name %> <%= user.last_name %></div>
-            <div class="user_last_name"></div>
-            <div class="user_name"><%= user.user_name %></div>
+            <div class="user_first_name"> <%= player.Name %> </div>
+            <div class="user_name"><%= player.Position %></div>
+            <div class="user_name"><%= player.team.name %></div>
           </div>
           <div class="spacer"></div>
         <% end %>

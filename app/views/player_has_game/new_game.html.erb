@@ -1,0 +1,14 @@
+<%= form_tag 'novo_jogo', method: 'get' do %>
+  <%= select_tag "team_id", options_for_select(@team_1.map {|team| [team.name, team.id]}, selected: params["team_id"]) %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<% if @player %>
+  <%= form_for @player_has_game, url: {action: "create"} do |f| %>
+    <div class="field">
+      <%= f.label :Player %>
+      <%= f.select :player_id, @player.all.order(:Name).collect {|s| [(s.Name), s.id]} %>
+    </div>
+    <%= submit_tag "Submit" %>
+  <% end %>
+<% end %>
