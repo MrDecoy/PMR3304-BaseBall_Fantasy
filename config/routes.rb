@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/view_games' => 'player_has_game#index'
   get '/post_edit' => 'player_has_game#edit_game_post'
   get '/admin' => 'pages#admin'
+  get '/add_stadium' => 'stadia#new'
+  get '/edit_stadium' => 'stadia#index'
+  get '/edit_teams' => 'teams#index'
+  get '/add_teams' => 'teams#new'
 
   devise_for :users
   #devise_for :sessions, controllers: {sessions: "users/sessions#new"}
