@@ -71,6 +71,9 @@ class PlayersController < ApplicationController
     @team = @player.teams
   end
 
+  def name
+    @name = @player.Name
+  end
   def participates_in?(cartola)
     self.cartolas.include?(cartola)
   end

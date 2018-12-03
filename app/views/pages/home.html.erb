@@ -8,10 +8,14 @@
         <h5 class="best-players">Jogadores da rodada</h5>
 
       <% @players.each do |player| %>
+
           <div class="player">
-            <div class="user_first_name"> <%= player.Name %> </div>
-            <div class="user_name"><%= player.Position %></div>
-            <div class="user_name"><%= player.team.name %></div>
+            <div><%= player["Name"] %> </div>
+            <div>Time: <%= player["team"] %></div>
+            <div>Posição: <%= player["Position"] %></div>
+            <div>Runs: <%= player["runs"] %></div>
+            <div>Home Runs: <%= player["home_run"] %></div>
+
           </div>
           <div class="spacer"></div>
         <% end %>
@@ -24,13 +28,30 @@
         <div class="spacer"></div>
         <h5 class="best-players">Jogos da rodada</h5>
 
-        <% @players.each do |player| %>
-          <div class="player">
-            <div class="user_first_name"> <%= player.Name %> </div>
-            <div class="user_name"><%= player.Position %></div>
-            <div class="user_name"><%= player.team.name %></div>
+        <% @games.each do |game| %>
+          <div class="player container">
+            <div class="container">
+
+              <div class="col-sm-2"><%= game["stadium"] %>
+              </div>
+
+              <div class="col-sm-2"><%= game["home_team"] %> </div>
+              <div class="col-sm-2">vs</div>
+              <div class="col-sm-2"><%= game["visiting_team"] %></div>
+              <div class="col-sm-4"></div>
+            </div>
+            <div class="container">
+              <div class="col-sm-2"><%= game["game_date"] %></div>
+              <div class="col-sm-2"><%= game["home_score"] %> </div>
+              <div class="col-sm-2">vs</div>
+              <div class="offset-col-sm-2"></div>
+              <div class="col-sm-2"><%= game["visiting_score"] %></div>
+              <div class="col-sm-4"></div>
+
+            </div>
+            <div class="spacer"></div>
+
           </div>
-          <div class="spacer"></div>
         <% end %>
       </div>
     </div>

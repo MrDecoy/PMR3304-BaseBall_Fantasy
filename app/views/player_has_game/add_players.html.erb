@@ -1,0 +1,118 @@
+<% if @player1 %>
+  <%= form_tag 'show_games', method: 'get' do %>
+    <div class="outer-box">
+
+      <div class="container-fluid inner-box">
+        <div class="spacer-big"></div>
+
+        <div class="hidden-xs col-sm-6 no-gutter players">
+          <div class="spacer"></div>
+          <h5 class="best-players">Jogadores da rodada</h5>
+
+          <div class="player">
+            <%= select_tag "player11_id", options_for_select(@player11.map {|player| [player.Name, player.id]}, selected: params["player11_id"]) %>
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player12_id", options_for_select(@player12.map {|player| [player.Name, player.id]}, selected: params["player12_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player13_id", options_for_select(@player13.map {|player| [player.Name, player.id]}, selected: params["player13_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player14_id", options_for_select(@player14.map {|player| [player.Name, player.id]}, selected: params["player14_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player15_id", options_for_select(@player15.map {|player| [player.Name, player.id]}, selected: params["player15_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player16_id", options_for_select(@player16.map {|player| [player.Name, player.id]}, selected: params["player16_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player17_id", options_for_select(@player17.map {|player| [player.Name, player.id]}, selected: params["player17_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player18_id", options_for_select(@player18.map {|player| [player.Name, player.id]}, selected: params["player18_id"]) %>
+          </div>
+          <div class="spacer"></div>
+
+        </div>
+
+        <div class="hidden-xs col-sm-6 no-gutter players">
+          <div class="spacer"></div>
+          <h5 class="best-players">Jogadores da rodada</h5>
+
+          <div class="player">
+            <%= select_tag "player21_id", options_for_select(@player21.map {|player| [player.Name, player.id]}, selected: params["player21_id"]) %>
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player22_id", options_for_select(@player22.map {|player| [player.Name, player.id]}, selected: params["player22_id"]) %>
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player23_id", options_for_select(@player23.map {|player| [player.Name, player.id]}, selected: params["player23_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player24_id", options_for_select(@player24.map {|player| [player.Name, player.id]}, selected: params["player24_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player25_id", options_for_select(@player25.map {|player| [player.Name, player.id]}, selected: params["player25_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player26_id", options_for_select(@player26.map {|player| [player.Name, player.id]}, selected: params["player26_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player27_id", options_for_select(@player27.map {|player| [player.Name, player.id]}, selected: params["player27_id"]) %>
+
+          </div>
+          <div class="spacer"></div>
+
+          <div class="player">
+            <%= select_tag "player28_id", options_for_select(@player28.map {|player| [player.Name, player.id]}, selected: params["player28_id"]) %>
+          </div>
+          <div class="spacer"></div>
+
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+    </div>
+    <%= submit_tag "Submit" %>
+  <% end %>
+<% end %>

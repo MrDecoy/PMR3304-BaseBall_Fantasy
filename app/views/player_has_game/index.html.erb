@@ -1,0 +1,40 @@
+<div class="hidden-xs col-sm-2 no-gutter players"></div>
+<div class="hidden-xs col-sm-8 no-gutter players">
+  <h5 class="best-players">Jogos</h5>
+  <% @games.each do |game| %>
+    <div class="player ">
+      <%= form_tag 'edit_game', method: 'get' do %>
+        <div class="container">
+          <div class="col-sm-2"></div>
+
+          <div class="col-sm-2"><%= game["home_team"] %> </div>
+          <div class="col-sm-2">vs</div>
+          <div class="col-sm-2"><%= game["visiting_team"] %></div>
+          <div class="col-sm-4"></div>
+        </div>
+        <div class="container">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-2"><%= game["home_score"] %> </div>
+          <div class="col-sm-2">vs</div>
+          <div class="offset-col-sm-2"></div>
+          <div class="col-sm-2"><%= game["visiting_score"] %></div>
+          <div class="col-sm-4"></div>
+
+        </div>
+        <div class="spacer"></div>
+        <%= hidden_field_tag :game_id, game["id"] %>
+        <% if current_user %>
+          <% if current_user.is_admin? %>
+
+            <%= submit_tag "Editar Jogo" %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <div class="spacer"></div>
+    </div>
+
+  <% end %>
+</div>
+
+<div class="hidden-xs col-sm-2 no-gutter players"></div>

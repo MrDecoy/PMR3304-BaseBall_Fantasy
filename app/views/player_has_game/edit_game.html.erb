@@ -1,0 +1,480 @@
+<div class="outer-box">
+
+  <div class="container-fluid inner-box">
+    <div class="spacer-big"></div>
+    <%= form_tag("/post_edit", method: "get") do %>
+
+      <%= hidden_field_tag "game_id", String(@game_id) %>
+      <div class="col-sm-6 no-gutter players">
+        <div class="spacer"></div>
+        <h5 class="best-players"><%= Team.find_by(id: @teams[0][:team_id]).name %></h5>
+
+        <div class="player col-sm-12 no-gutter">
+          <div class="col-sm-2">
+            <%= @player.find_by(id: @pitcher_1[0][:player_id]).Name %></div>
+          <%= fields_for(@pitcher_1[0]) do |f| %>
+            <div class="field col-sm-2">
+
+              <%= f.label "HR" %>
+              <%= f.number_field :home_run, id: String(@pitcher_1[0][:player_id]), name: String(@pitcher_1[0][:player_id]) + "[home_run]" %>
+            </div>
+            <div class="field col-sm-2  ">
+              <%= f.label "Hits" %>
+              <%= f.number_field :hits, id: String(@pitcher_1[0][:player_id]), name: String(@pitcher_1[0][:player_id]) + "[hits]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label "At Bats" %>
+              <%= f.number_field :at_bats, id: String(@pitcher_1[0][:player_id]), name: String(@pitcher_1[0][:player_id]) + "[at_bats]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Rbi %>
+              <%= f.number_field :rbi, id: String(@pitcher_1[0][:player_id]), name: String(@pitcher_1[0][:player_id]) + "[rbi]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Runs %>
+              <%= f.number_field :runs, id: String(@pitcher_1[0][:player_id]), name: String(@pitcher_1[0][:player_id]) + "[runs]" %>
+            </div>
+
+          <% end %>
+        </div>
+        <div class="player col-sm-12 no-gutter">
+          <div class="col-sm-2">
+            <%= @player.find_by(id: @first_base_1[0][:player_id]).Name %></div>
+          <%= fields_for @first_base_1[0] do |f| %>
+
+            <div class="field col-sm-2">
+
+              <%= f.label "HR" %>
+              <%= f.number_field :home_run, id: String(@first_base_1[0][:player_id]), name: String(@first_base_1[0][:player_id]) + "[home_run]" %>
+            </div>
+            <div class="field col-sm-2  ">
+              <%= f.label "Hits" %>
+              <%= f.number_field :hits, id: String(@first_base_1[0][:player_id]), name: String(@first_base_1[0][:player_id]) + "[hits]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label "At Bats" %>
+              <%= f.number_field :at_bats, id: String(@first_base_1[0][:player_id]), name: String(@first_base_1[0][:player_id]) + "[at_bats]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Rbi %>
+              <%= f.number_field :rbi, id: String(@first_base_1[0][:player_id]), name: String(@first_base_1[0][:player_id]) + "[rbi]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Runs %>
+              <%= f.number_field :runs, id: String(@first_base_1[0][:player_id]), name: String(@first_base_1[0][:player_id]) + "[runs]" %>
+            </div>
+
+          <% end %>
+        </div>
+        <div class="player col-sm-12 no-gutter">
+          <div class="col-sm-2">
+            <%= @player.find_by(id: @second_base_1[0][:player_id]).Name %></div>
+          <%= fields_for @second_base_1[0] do |f| %>
+
+            <div class="field col-sm-2">
+
+              <%= f.label "HR" %>
+              <%= f.number_field :home_run, id: String(@second_base_1[0][:player_id]), name: String(@second_base_1[0][:player_id]) + "[home_run]" %>
+            </div>
+            <div class="field col-sm-2  ">
+              <%= f.label "Hits" %>
+              <%= f.number_field :hits, id: String(@second_base_1[0][:player_id]), name: String(@second_base_1[0][:player_id]) + "[hits]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label "At Bats" %>
+              <%= f.number_field :at_bats, id: String(@second_base_1[0][:player_id]), name: String(@second_base_1[0][:player_id]) + "[at_bats]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Rbi %>
+              <%= f.number_field :rbi, id: String(@second_base_1[0][:player_id]), name: String(@second_base_1[0][:player_id]) + "[rbi]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Runs %>
+              <%= f.number_field :runs, id: String(@second_base_1[0][:player_id]), name: String(@second_base_1[0][:player_id]) + "[runs]" %>
+            </div>
+
+          <% end %>
+        </div>
+        <div class="player col-sm-12 no-gutter">
+          <div class="col-sm-2">
+            <%= @player.find_by(id: @third_base_1[0][:player_id]).Name %></div>
+          <%= fields_for @third_base_1[0] do |f| %>
+
+            <div class="field col-sm-2">
+
+              <%= f.label "HR" %>
+              <%= f.number_field :home_run, id: String(@third_base_1[0][:player_id]), name: String(@third_base_1[0][:player_id]) + "[home_run]" %>
+            </div>
+            <div class="field col-sm-2  ">
+              <%= f.label "Hits" %>
+              <%= f.number_field :hits, id: String(@third_base_1[0][:player_id]), name: String(@third_base_1[0][:player_id]) + "[hits]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label "At Bats" %>
+              <%= f.number_field :at_bats, id: String(@third_base_1[0][:player_id]), name: String(@third_base_1[0][:player_id]) + "[at_bats]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Rbi %>
+              <%= f.number_field :rbi, id: String(@third_base_1[0][:player_id]), name: String(@third_base_1[0][:player_id]) + "[rbi]" %>
+            </div>
+            <div class="field col-sm-2">
+              <%= f.label :Runs %>
+              <%= f.number_field :runs, id: String(@third_base_1[0][:player_id]), name: String(@third_base_1[0][:player_id]) + "[runs]" %>
+            </div>
+            </div>
+          <% end %>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @shortstop_1[0][:player_id]).Name %></div>
+            <%= fields_for @shortstop_1[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@shortstop_1[0][:player_id]), name: String(@shortstop_1[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@shortstop_1[0][:player_id]), name: String(@shortstop_1[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@shortstop_1[0][:player_id]), name: String(@shortstop_1[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@shortstop_1[0][:player_id]), name: String(@shortstop_1[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@shortstop_1[0][:player_id]), name: String(@shortstop_1[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @right_field_1[0][:player_id]).Name %></div>
+            <%= fields_for @right_field_1[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@right_field_1[0][:player_id]), name: String(@right_field_1[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@right_field_1[0][:player_id]), name: String(@right_field_1[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@right_field_1[0][:player_id]), name: String(@right_field_1[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@right_field_1[0][:player_id]), name: String(@right_field_1[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@right_field_1[0][:player_id]), name: String(@right_field_1[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @center_field_1[0][:player_id]).Name %></div>
+            <%= fields_for @center_field_1[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@center_field_1[0][:player_id]), name: String(@center_field_1[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@center_field_1[0][:player_id]), name: String(@center_field_1[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@center_field_1[0][:player_id]), name: String(@center_field_1[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@center_field_1[0][:player_id]), name: String(@center_field_1[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@center_field_1[0][:player_id]), name: String(@center_field_1[0][:player_id]) + "[runs]" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @left_field_1[0][:player_id]).Name %></div>
+            <%= fields_for @left_field_1[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@left_field_1[0][:player_id]), name: String(@left_field_1[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@left_field_1[0][:player_id]), name: String(@left_field_1[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@left_field_1[0][:player_id]), name: String(@left_field_1[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@left_field_1[0][:player_id]), name: String(@left_field_1[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@left_field_1[0][:player_id]), name: String(@left_field_1[0][:player_id]) + "[runs]" %>
+              </div>
+            <% end %>
+          </div>
+          </div>
+
+
+      <div class="col-sm-6 no-gutter">
+        <div class="players col-md-12">
+          <div class="spacer"></div>
+          <h5 class="best-players"><%= Team.find_by(id: @teams[1][:team_id]).name %></h5>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @pitcher_2[0][:player_id]).Name %></div>
+            <%= fields_for(@pitcher_2[0]) do |f| %>
+
+              <div class="field col-sm-2">
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@pitcher_2[0][:player_id]), name: String(@pitcher_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@pitcher_2[0][:player_id]), name: String(@pitcher_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@pitcher_2[0][:player_id]), name: String(@pitcher_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@pitcher_2[0][:player_id]), name: String(@pitcher_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@pitcher_2[0][:player_id]), name: String(@pitcher_2[0][:player_id]) + "[runs]" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= Player.find_by(id: @first_base_2[0][:player_id]).Name %></div>
+            <%= fields_for(@pitcher_2[0]) do |f| %>
+
+              <div class="field col-sm-2">
+                <%= f.label "Hr" %>
+                <%= f.number_field :hits, id: String(@first_base_2[0][:player_id]), name: String(@first_base_2[0][:player_id]) + "[home_rum]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@first_base_2[0][:player_id]), name: String(@first_base_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@first_base_2[0][:player_id]), name: String(@first_base_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@first_base_2[0][:player_id]), name: String(@first_base_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@first_base_2[0][:player_id]), name: String(@first_base_2[0][:player_id]) + "[runs]" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @second_base_2[0][:player_id]).Name %></div>
+            <%= fields_for @second_base_2[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@second_base_2[0][:player_id]), name: String(@second_base_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@second_base_2[0][:player_id]), name: String(@second_base_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@second_base_2[0][:player_id]), name: String(@second_base_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@second_base_2[0][:player_id]), name: String(@second_base_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@second_base_2[0][:player_id]), name: String(@second_base_2[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @third_base_2[0][:player_id]).Name %></div>
+            <%= fields_for @third_base_2[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@third_base_2[0][:player_id]), name: String(@third_base_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@third_base_2[0][:player_id]), name: String(@third_base_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@third_base_2[0][:player_id]), name: String(@third_base_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@third_base_2[0][:player_id]), name: String(@third_base_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@third_base_2[0][:player_id]), name: String(@third_base_2[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @shortstop_2[0][:player_id]).Name %></div>
+            <%= fields_for @shortstop_2[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@shortstop_2[0][:player_id]), name: String(@shortstop_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@shortstop_2[0][:player_id]), name: String(@shortstop_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@shortstop_2[0][:player_id]), name: String(@shortstop_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@shortstop_2[0][:player_id]), name: String(@shortstop_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@shortstop_2[0][:player_id]), name: String(@shortstop_2[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @right_field_2[0][:player_id]).Name %></div>
+            <%= fields_for @right_field_2[0] do |f| %>
+              <div class="field col-sm-2">
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@right_field_2[0][:player_id]), name: String(@right_field_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@right_field_2[0][:player_id]), name: String(@right_field_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@right_field_2[0][:player_id]), name: String(@right_field_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@right_field_2[0][:player_id]), name: String(@right_field_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@right_field_2[0][:player_id]), name: String(@right_field_2[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @center_field_2[0][:player_id]).Name %></div>
+            <%= fields_for @center_field_2[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@center_field_2[0][:player_id]), name: String(@center_field_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@center_field_2[0][:player_id]), name: String(@center_field_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@center_field_2[0][:player_id]), name: String(@center_field_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@center_field_2[0][:player_id]), name: String(@center_field_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@center_field_2[0][:player_id]), name: String(@center_field_2[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+          <div class="player col-sm-12 no-gutter">
+            <div class="col-sm-2">
+              <%= @player.find_by(id: @left_field_2[0][:player_id]).Name %></div>
+            <%= fields_for @left_field_2[0] do |f| %>
+
+              <div class="field col-sm-2">
+
+                <%= f.label "HR" %>
+                <%= f.number_field :home_run, id: String(@left_field_2[0][:player_id]), name: String(@left_field_2[0][:player_id]) + "[home_run]" %>
+              </div>
+              <div class="field col-sm-2  ">
+                <%= f.label "Hits" %>
+                <%= f.number_field :hits, id: String(@left_field_2[0][:player_id]), name: String(@left_field_2[0][:player_id]) + "[hits]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label "At Bats" %>
+                <%= f.number_field :at_bats, id: String(@left_field_2[0][:player_id]), name: String(@left_field_2[0][:player_id]) + "[at_bats]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Rbi %>
+                <%= f.number_field :rbi, id: String(@left_field_2[0][:player_id]), name: String(@left_field_2[0][:player_id]) + "[rbi]" %>
+              </div>
+              <div class="field col-sm-2">
+                <%= f.label :Runs %>
+                <%= f.number_field :runs, id: String(@left_field_2[0][:player_id]), name: String(@left_field_2[0][:player_id]) + "[runs]" %>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%= submit_tag %>
+    <% end %>
+  </div>
+
+
+</div>
